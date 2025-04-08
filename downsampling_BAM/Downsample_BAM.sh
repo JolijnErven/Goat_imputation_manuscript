@@ -21,7 +21,7 @@ for i in {0.1,0.15,0.2,0.25,0.3,0.40,0.50,0.75,1,2,4}; do
     # Calculate the downsampling fraction
     frac=$((i/COV))
     
-    echo "Downsampling with fraction: $frac"
+    echo "Downsampling to $i with fraction $frac for $1"
     # Use Samtools to downsample the BAM file
     /Software/samtools-1.13/samtools view -s $frac $1.bam -o $1_"$i"X.bam 
 done
