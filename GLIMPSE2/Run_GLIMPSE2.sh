@@ -5,7 +5,7 @@
 thread=35  # number of threads for parallelisation 
 CHROM=("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29") # list of chromosomes, autosomes only 
 RUN=/Software/bcftools-1.17/    # Path to bcftools
-dir=/imputation/  # working directory 
+dir=/imputed/  # working directory 
 merged="Imputed"    # prefix
 REF=//modern_reference_dataset/   #  path to reference panel in vcf.gz format
 MAP=/vargoats/bertrand_servin_map_breed_sex/  #  path to genetic map
