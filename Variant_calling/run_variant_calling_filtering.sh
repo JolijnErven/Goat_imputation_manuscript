@@ -6,8 +6,8 @@
 # Usage: run_variant_calling_filtering.sh <chromosome> <sample_id> <reference_vcf>
 
 # Define directories, chr and samples
-ref_dir="path_to_reference_panel_directory"  # Directory containing reference files
-dir="path_to_bam_files"  # Directory containing BAM files
+ref_dir="/modern_reference_dataset/"  # Directory containing reference files
+dir="/BAMs/test_downsample/"  # Directory containing BAM files
 chr=$1  # Chromosome number (first argument)
 sample=$2  # Sample ID (second argument, BAM file name)
 reference_vcf=$3  # Reference VCF file name (third argument)
