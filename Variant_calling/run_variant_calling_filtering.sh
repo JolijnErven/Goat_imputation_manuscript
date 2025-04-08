@@ -11,7 +11,7 @@ dir="path_to_bam_files"  # Directory containing BAM files
 chr=$1  # Chromosome number (first argument)
 sample=$2  # Sample ID (second argument, BAM file name)
 reference_vcf=$3  # Reference VCF file name (third argument)
-reference="/reference/ARS-UCD1.2_Btau5.0.1Y.fa"  # Reference genome
+reference="/Reference_Genomes/goat/ARS1.fa"  # Reference genome
 
 # Check if the reference site file and its index exist, if not, create them
 if [ ! -f ${ref_dir}/chr${chr}_${reference_vcf}.sites.tsv.gz ] || [ ! -f ${ref_dir}/chr${chr}_${reference_vcf}.sites.tsv.gz.tbi ]; then
