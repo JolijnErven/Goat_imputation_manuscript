@@ -88,11 +88,12 @@ done
 
 
 # Step 8: Combine all merged IBD segments (across replicates) and filter for LOD > 3
+# Do this for 0.6 cM gap merge
 cat ${2}_1/*${1}*_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_0.6_merge \
  ${2}_2/*${1}*_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_0.6_merge \
  ${2}_3/*${1}*_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_0.6_merge \
  | awk '$8 > 3' > ${2}_1/Combined_${1}_glimpse_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_0.6merge_refinedibd.ibd1.LOD3
-
+# and 4 cM gap merge
 cat ${2}_1/*${1}*beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_4_merge \
  ${2}_2/*${1}*beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_4_merge \
  ${2}_3/*${1}*beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse*gap_4_merge \
