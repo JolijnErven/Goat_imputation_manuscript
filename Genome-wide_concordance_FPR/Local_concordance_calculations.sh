@@ -13,7 +13,7 @@
 while read i; do 
     while read d; do 
         for c in {1..29}; do 
-            echo ./get_bed_windows.sh "$i" "$c" "$d" 
+            echo /scripts/get_bed_windows.sh "$i" "$c" "$d" 
         done 
     done < run_bed.txt 
 done < make_bed.txt > new_run_parallel_bed.sh
@@ -38,7 +38,7 @@ done < make_bed.txt \
 
 # Generate parallel execution commands for concordance calculations
 while read i; do 
-    echo ./calc_conc_bins.sh "$i"
+    echo /scripts/calc_conc_bins.sh "$i"
 done < new_get_calc_bins.txt | grep -v positions > new_run_parallel_bins.sh
 
 # Run concordance calculations in parallel (10 concurrent jobs)
@@ -87,4 +87,12 @@ done < get_majority.txt
 
 while read i; do
     get_positions.sh $i 
-	; done < majority__0.5X_GP0.99_validationMAF_0.05_Het_homoalt_concordance_500kb_100kb_99.9_perc_region.bed > Positions_to_remove_low_concordance.pos.txt
+; done < majority__0.5X_GP0.99_validationMAF_0.05_Het_homoalt_concordance_500kb_100kb_99.9_perc_region.bed > Positions_to_remove_low_concordance.pos.txt
+
+# Only after FPR script
+while read i; do
+    get_positions.sh $i 
+; done < majority__0.5X_GP0.99_validationMAF_0.05_FPR_500kb_100kb_99.9_perc_region.bed >> Positions_to_remove_low_concordance.pos.txt
+
+sort -k1,1 -k2,2 -n Positions_to_remove_low_concordance.pos.txt > Positions_to_remove_low_concordance_FPR.pos.txt
+
