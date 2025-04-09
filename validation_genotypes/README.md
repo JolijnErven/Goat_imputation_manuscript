@@ -1,6 +1,6 @@
 # VCF Validation and Concordance Pipeline
 
-This directory contains scripts that process VCF files to calculate concordance, false positive/negative rates, and generate PFR (Posterior Filter Rate) plots. The pipeline consists of three primary stages:
+This directory contains scripts that process VCF files to calculate concordance, false positive/negative rates, and generate plots. The pipeline consists of three primary stages:
 
 ---
 
@@ -42,7 +42,7 @@ This generates `.validation` files used in the next stage.
 
 ## Step 2: Calculate Concordance, FPR, and FNR Metrics
 
-The `.validation` files are processed using the following R scripts to compute concordance, false positive rate (FPR), false negative rate (FNR), and analyze the effects of minor allele frequency (MAF).
+The `.validation` files are processed using the following R scripts to compute concordance, false positive rate (FPR), false negative rate (FNR) for MAF tresholds and tranches
 
 ### Scripts
 - `Concordance_FPR_FNR_calculations_MAF_threshold.r`
@@ -51,11 +51,11 @@ The `.validation` files are processed using the following R scripts to compute c
 ### Example Usage
 ```bash
 Rscript Concordance_FPR_FNR_calculations_MAF_threshold.r output.validation
-# or
+# and
 Rscript Concordance_FPR_FNR_calculations_MAF_tranches.r output.validation
 ```
 
-These scripts produce summary tables of validation metrics stratified by MAF thresholds or tranches.
+These scripts produce summary tables of validation metrics stratified by sample, coverage and GP for MAF thresholds and tranches.
 
 ---
 
@@ -63,14 +63,6 @@ These scripts produce summary tables of validation metrics stratified by MAF thr
 
 The output from Step 2 is visualized using the R scripts in the `plotting_scripts` directory.
 
-### Directory
-```
-plotting_scripts/
-```
-
-These scripts generate performance and PFR plots to aid in interpreting the concordance and error profiles of imputed/downsampled datasets.
-
----
 
 ## Notes
 - Ensure all necessary R packages are installed before running the scripts.
