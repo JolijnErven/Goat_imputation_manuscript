@@ -64,6 +64,9 @@ These scripts produce summary tables of validation metrics stratified by sample,
 
 The output from Step 2 is visualized using the R scripts in the `plotting_scripts` directory.
 
+There are two scripts in this directory
+- Script to plot concordance, FPR and FNR (`Plot_validation_imputation.R`)
+- Script to plot recovery (`Plot_imputation_recovery_MAF_threshold.R`)
 
 ## Notes
 - Ensure all necessary R packages are installed before running the scripts.
