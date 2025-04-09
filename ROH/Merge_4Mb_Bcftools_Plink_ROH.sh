@@ -16,7 +16,7 @@ while read i; do awk -v OFS='\t' '{ if ($6>=4000000) print $3,$4,$5,$2,$6}' "$i"
 cd plink_bcftools
 
 # Transform plink 1.6M .hom files to .bed files
-ls /published_paleogenomes_ROH/*_MAF_0.05_TV_1.6M_500kb_100kb_200SNPs_1het.hom | rev| cit -f 1 -d '/' | rev  | sed 's/.txt//g' > files.txt
+ls /published_paleogenomes_ROH/*_MAF_0.05_TV_1.6M_500kb_100kb_200SNPs_1het.hom | rev| cut -f 1 -d '/' | rev  | sed 's/.txt//g' > files.txt
 
 while read i; do awk -v OFS='\t' '{print $4,$7,$8,$1,$9}' /published_paleogenomes_ROH/"$i".hom > "$i".bed ; done < files.txt
 
@@ -80,4 +80,4 @@ awk -F'\t' -v OFS='\t' '{print $1,"Combined dataset",$2,$3}' ROH_demo_plots_comb
  cat Final_ROH_demo_plots_combined_glimpse2_GP99_MAF05_published_0-5X_geno0_bcftools_plink_ROH_sum_transpose.txt \
  Combined_GP99_MAF_0.05_TV_1.6M_bcftools_plink_ROH_sum_transpose.txt | grep -v Sample > Figure5_ROH_sum_profiles_plink_bcftools_comparison.txt
  
-  sed -i '1s/^/Sample\tDataset\tBins\tROH_SUM\n/'  Figure5_ROH_sum_profiles_plink_bcftools_comparison.txt
+ sed -i '1s/^/Sample\tDataset\tBins\tROH_SUM\n/'  Figure5_ROH_sum_profiles_plink_bcftools_comparison.txt
