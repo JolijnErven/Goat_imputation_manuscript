@@ -17,7 +17,7 @@ MAP=/vargoats/bertrand_servin_map_breed_sex/  #  path to genetic map
 mkdir -p ${dir}/glimpse_ref_panel/
 for CHR in ${CHROM}; do
 if [ ! -f ${dir}/glimpse_ref_panel/chunks.chr${CHR}.txt ]; then
-		/programs/GLIMPSE-2.0.0/GLIMPSE2_chunk_static  --sequential --input ${REF}chr${CHR}_$3.vcf.gz \
+		/programs/GLIMPSE-2.0.0/GLIMPSE2_chunk_static  --sequential --input ${REF}chr${CHR}_$3.sites.vcf.gz \
 			--region ${CHR} --window-mb 4 --buffer-mb 0.2 --map ${MAP}_${CHR}.gmap \
 			--output ${dir}/glimpse_ref_panel/chunks.chr${CHR}.txt --log  ${dir}/glimpse_ref_panel/chunks.chr${CHR}.log
 	fi
