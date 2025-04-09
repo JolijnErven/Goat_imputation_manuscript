@@ -13,7 +13,7 @@
 while read i; do 
     while read d; do 
         for c in {1..29}; do 
-            echo ./get_bed_windows.sh "$i" "$c" "$d" 
+            echo /scripts/get_bed_windows.sh "$i" "$c" "$d" 
         done 
     done < run_bed.txt 
 done < make_bed.txt > new_run_parallel_bed.sh
@@ -38,7 +38,7 @@ done < make_bed.txt \
 
 # Generate parallel execution commands for concordance calculations
 while read i; do 
-    echo ./calc_FPR_bins.sh "$i"
+    echo /scripts/calc_FPR_bins.sh "$i"
 done < new_get_calc_bins.txt | grep -v positions > new_run_parallel_bins.sh
 
 # Run concordance calculations in parallel (10 concurrent jobs)
