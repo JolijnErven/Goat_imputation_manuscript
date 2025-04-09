@@ -5,6 +5,7 @@ library(dplyr)
 # This scripts calculates the concordance of Non reference, heterozygous, homozygous alternative, homozygous 
 # false-positive and false negative heterozygous rate for each downsampled coverage, GP threshold and sample
 # divided in MAF tranches from rare to more common alleles
+# Created by Kevin Daly updated by Jolijn Erven
 
 # Read command line arguments
 args = commandArgs(trailingOnly=TRUE)
