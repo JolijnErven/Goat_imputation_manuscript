@@ -15,6 +15,7 @@ validate_imputed_downsampled_vcfs.r
 
 ### Usage
 You can use the following shell loop to create commands for all chromosomes and samples:
+The $TRUE parameter are the diploid calls created from the Variant_calling/run_variant_calling_filtering.sh
 
 ```bash
 for CHR in {1..29}; do
