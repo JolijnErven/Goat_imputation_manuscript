@@ -64,7 +64,7 @@ for (MAF in c(0.00,0.01, 0.05, 0.10)) {
    val.GP.05<-val.GP[val.GP$RAF >= MAF & val.GP$RAF <= (1-MAF),]
    
    #get number of genotype imputed
-   val.GP.05.recov <- val.GP.05 %>% group_by(NAME,COVERAGE,SAMPLE,DATASET) %>% summarise(n = n())
+   val.GP.05.recov <- val.GP.05[val.GP.05$SAMPLE != "./." ,] %>% group_by(NAME,COVERAGE,SAMPLE,DATASET) %>% summarise(n = n())
    val.GP.05.recov$MAF <- MAF
    # Append to dataframe
    recov<-rbind(recov, val.GP.05.recov)
