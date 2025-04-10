@@ -13,7 +13,15 @@ MAP=/vargoats/bertrand_servin_map_breed_sex/  #  path to genetic map
 #pipeline followed from https://odelaneau.github.io/GLIMPSE/docs/tutorials/getting_started/
 ##############################################################################################################################
 
-# STEP 1: SPLIT THE GENOME INTO CHUNKS
+# STEP 1: get sites.vcf.gz
+for CHR in ${CHROM}; do
+if [ ! -f ${REF}chr${CHR}_$3.sites.vcf.gz ]; then
+		bcftools view -G -Oz -o ${REF}chr${CHR}_$3.sites.vcf.gz ${REF}chr${CHR}_$3.bcf
+                bcftools index -f ${REF}chr${CHR}_$3.sites.vcf.gz
+	fi
+done
+
+# STEP 2: SPLIT THE GENOME INTO CHUNKS
 mkdir -p ${dir}/glimpse_ref_panel/
 for CHR in ${CHROM}; do
 if [ ! -f ${dir}/glimpse_ref_panel/chunks.chr${CHR}.txt ]; then
@@ -23,7 +31,7 @@ if [ ! -f ${dir}/glimpse_ref_panel/chunks.chr${CHR}.txt ]; then
 	fi
 done
 
-# STEP 2: SPLIT THE GENOME INTO bins
+# STEP 3: SPLIT THE GENOME INTO bins
 for CHR in ${CHROM}; do
 
 #	# Extract variable from chunk file
@@ -38,7 +46,7 @@ for CHR in ${CHROM}; do
      done < ${dir}/glimpse_ref_panel/chunks.chr${CHR}.txt
 done
 
-# STEP 3: IMPUTE AND PHASE
+# STEP 4: IMPUTE AND PHASE
 mkdir -p ${dir}/glimpse_Imputed
 
 for CHR in ${CHROM}; do
@@ -77,7 +85,7 @@ for CHR in ${CHROM}; do
 	done
 done
 
-# STEP 4: LIGATE MULTIPLE CHUNKS
+# STEP 5: LIGATE MULTIPLE CHUNKS
 mkdir -p ${dir}/glimpse_Ligated
 for CHR in ${CHROM}; do
 	ls -1v ${dir}/glimpse_Imputed/chr${CHR}.*.bcf > ${dir}/glimpse_Ligated/list.chr${CHR}.txt
@@ -86,7 +94,7 @@ for CHR in ${CHROM}; do
 	${RUN}bcftools index -f ${dir}/glimpse_Ligated/${merged}.chr${CHR}_$2.ligated.bcf
 done
 
-# STEP 5: CONVERT TO VCF
+# STEP 6: CONVERT TO VCF
 for CHR in ${CHROM}; do
 	# STEP 4.1: CONVERT BCF TO VCF
 	${RUN}bcftools view -Ov \
@@ -96,7 +104,7 @@ for CHR in ${CHROM}; do
 
 done
 
-# STEP 6: REMOVE FILES
+# STEP 7: REMOVE FILES
 for CHR in ${CHROM}; do
 
 	rm ${dir}/glimpse_Imputed/*
