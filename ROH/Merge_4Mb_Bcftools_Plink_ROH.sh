@@ -16,7 +16,7 @@ while read i; do awk -v OFS='\t' '{ if ($6>=4000000) print $3,$4,$5,$2,$6}' "$i"
 cd plink_bcftools
 
 # Transform plink 1.6M .hom files to .bed files
-ls /published_paleogenomes_ROH/*_MAF_0.05_TV_1.6M_500kb_100kb_200SNPs_1het.hom | rev| cut -f 1 -d '/' | rev  | sed 's/.txt//g' > files.txt
+ls /published_paleogenomes_ROH/*_MAF_0.05_TV_1.6M_500kb_100kb_200SNPs_1het.hom | rev| cut -f 1 -d '/' | rev  | sed 's/.hom//g' > files.txt
 
 while read i; do awk -v OFS='\t' '{print $4,$7,$8,$1,$9}' /published_paleogenomes_ROH/"$i".hom > "$i".bed ; done < files.txt
 
