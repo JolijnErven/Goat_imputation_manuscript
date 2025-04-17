@@ -117,7 +117,7 @@ for (i in seq_along(a)) {
    val.GP.05.sum.het.homoalt.match$r2<-(val.GP.05.sum.het.homoalt.match$N / ( val.GP.05.sum.het.homoalt.match$N + val.GP.05.sum.het.homoalt.dis$N))^2
    val.GP.05.sum.het.homoalt.match$concord<-(val.GP.05.sum.het.homoalt.match$N / ( val.GP.05.sum.het.homoalt.match$N + val.GP.05.sum.het.homoalt.dis$N))
    # Filter for non-reference (0/1, 1/1) for transitions and transverions seperately (Type)
-   val.GP.05.sum.type.het.homoalt<-val.GP.05.sum.type[val.GP.05.sum.type$TRUTH != "0/0",] %>% group_by(NAME,COVERAGE,TYPE,DATASET,MATCH,MAF)  %>% summarise(N = sum(n))
+   val.GP.05.sum.type.het.homoalt<-val.GP.05.sum.type[val.GP.05.sum.type$TRUTH != "0/0",] %>% group_by(NAME,COVERAGE,TYPE,MATCH,DATASET,MAF)  %>% summarise(N = sum(n))
    # Separate discordant and matching variants for transitions and transverions seperately (Type)
    val.GP.05.sum.type.het.homoalt.dis<-val.GP.05.sum.type.het.homoalt[val.GP.05.sum.type.het.homoalt$MATCH=="discordant",]
    val.GP.05.sum.type.het.homoalt.match<-val.GP.05.sum.type.het.homoalt[val.GP.05.sum.type.het.homoalt$MATCH!="discordant",]
@@ -218,7 +218,7 @@ for (i in seq_along(a)) {
    # Summarize incorrectly imputed heterozygotes (false heterozygotes) for transitions and transverions seperately (Type)
    val.GP.05.type.falseHet<-data.frame(val.GP.05[(val.GP.05$SAMPLE == "0/1") & (val.GP.05$TRUTH == "0/0" | val.GP.05$TRUTH == "1/1" ),] %>% group_by(NAME,COVERAGE,TYPE,MATCH,DATASET,MAF) %>% summarise(n = n()))
    # Summarize all imputed heterozygotes where truth is called for transitions and transverions seperately (Type)
-   val.GP.05.type.allHet<-data.frame(val.GP.05[val.GP.05$TRUTH == "0/1" & val.GP.05$SAMPLE != "./.",] %>% group_by(NAME,COVERAGE,DATASET,MAF,TYPE) %>% summarise(n = n()))
+   val.GP.05.type.allHet<-data.frame(val.GP.05[val.GP.05$TRUTH == "0/1" & val.GP.05$SAMPLE != "./.",] %>% group_by(NAME,COVERAGE,TYPE,DATASET,MAF) %>% summarise(n = n()))
    # Compute the false heterozygous rate for transitions and transverions seperately (Type)
    val.GP.05.type.falseHet$falseHetRate<-val.GP.05.type.falseHet$n/val.GP.05.type.allHet$n
    
@@ -239,7 +239,7 @@ for (i in seq_along(a)) {
    # Summarize incorrectly imputed sites that are heterozygous in TRUTH for transitions and transverions seperately (Type)
    val.GP.05.type.falseHetNeg<-data.frame(val.GP.05[(val.GP.05$SAMPLE == "0/0"  | val.GP.05$SAMPLE == "1/1") & (val.GP.05$TRUTH == "0/1"  ),] %>% group_by(NAME,COVERAGE,TYPE,MATCH,DATASET,MAF) %>% summarise(n = n()))
    # Summarize all heterozygotes in the TRUTH dataset which are not missing in imputed for transitions and transverions seperately (Type)
-   val.GP.05.type.allHet.Neg<-data.frame(val.GP.05[val.GP.05$TRUTH == "0/1" & val.GP.05$SAMPLE != "./.",] %>% group_by(NAME,COVERAGE,TYPE,MATCH,DATASET,MAF) %>% summarise(n = n()))
+   val.GP.05.type.allHet.Neg<-data.frame(val.GP.05[val.GP.05$TRUTH == "0/1" & val.GP.05$SAMPLE != "./.",] %>% group_by(NAME,COVERAGE,TYPE,DATASET,MAF) %>% summarise(n = n()))
    # Compute the false negative heterozygous rate for transitions and transverions seperately (Type)
    val.GP.05.type.falseHetNeg$falseHetRate<-val.GP.05.type.falseHetNeg$n/val.GP.05.type.allHet.Neg$n
    
