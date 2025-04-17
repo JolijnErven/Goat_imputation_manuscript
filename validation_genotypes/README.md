@@ -25,7 +25,7 @@ for CHR in {1..29}; do
       SAMPLE=$(echo $DOWNSAMPLED | cut -f1 -d'_')
       COV=$(echo $DOWNSAMPLED | cut -f2 -d'_' | sed -e "s/-/./g" | sed -e "s/X//g")
       GP=$(echo $DOWNSAMPLED | cut -f3 -d'_')
-      echo "Rscript validate_imputed_downsampled_vcfs.r $TRUE ${DOWNSAMPLED}.vcf ${SAMPLE} $COV ${DOWNSAMPLED}.validation 2> ${DOWNSAMPLED}.error" >> parallel_validation.sh
+      echo "Rscript validate_imputed_downsampled_vcfs.r $TRUE ${DOWNSAMPLED}.vcf ${SAMPLE} $COV $GP ${DOWNSAMPLED}.validation 2> ${DOWNSAMPLED}.error" >> parallel_validation.sh
     done
   done
 done
