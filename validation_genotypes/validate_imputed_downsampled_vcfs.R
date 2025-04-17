@@ -14,7 +14,7 @@ args = commandArgs(trailingOnly=TRUE)
 # for CHR in {1..29}; do for TRUE in $(ls path_to_TRUTH_VCF/*chr${CHR}_*.vcf.gz); 
 # do SAMPLE=`echo $TRUE | rev | cut -f1 -d'/' | rev | cut -f1 -d'_'`; for DOWNSAMPLED in $(ls ${SAMPLE}*chr${CHR}_*vcf| cut -f1 -d'.'); do SAMPLE=`echo $DOWNSAMPLED | 
 # cut -f1 -d'_'`; COV=`echo $DOWNSAMPLED | cut -f2 -d'_' | cut -f1 -d'.' | sed -e "s/-/./g" | sed -e "s/X//g"` ; GP=`echo $DOWNSAMPLED | cut -f3 -d'_' | cut -f1 -d'.'` ;echo Rscript validate_imputed_downsampled_vcfs.R $TRUE ${DOWNSAMPLED}.vcf ${SAMPLE}
-# $COV ${DOWNSAMPLED}.validation "2>" ${DOWNSAMPLED}.error ;done ; done ; done >> parallel_validation.sh
+# $COV $GP ${DOWNSAMPLED}.validation "2>" ${DOWNSAMPLED}.error ;done ; done ; done >> parallel_validation.sh
 
 # args1 is the TRUTH high coverage VCF
 # args2 is the imputed downsampled VCF
