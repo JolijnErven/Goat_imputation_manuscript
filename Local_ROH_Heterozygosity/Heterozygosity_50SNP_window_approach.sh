@@ -13,7 +13,7 @@ while read i; do
 
 while read vcf; do
     for c in {1..29}; do
-        zcat /published_paleogenomes_ROH/"$vcf".vcf.gz | awk -v chr=${c} '{ if ($1==chr) print $0}' > chr"$c"_"$vcf".vcf ; awk -f divide_chr_50_SNPs.awk chr"$c"_"$vcf".vcf > hets_chr"$c"_"$vcf".vcf ; awk '{ if ($3>2) print $0}' hetschr"$c"_"$vcf".vcf > figure_hets_chr"$c"_"$vcf".vcf
+        zcat /published_paleogenomes_ROH/"$vcf".vcf.gz | awk -v chr=${c} '{ if ($1==chr) print $0}' > chr"$c"_"$vcf".vcf ; awk -f divide_chr_50_SNPs.awk chr"$c"_"$vcf".vcf > hets_chr"$c"_"$vcf".vcf ; awk '{ if ($3>2) print $0}' hets_chr"$c"_"$vcf".vcf > figure_hets_chr"$c"_"$vcf".vcf
      done
  done < vcfs.txt
 
