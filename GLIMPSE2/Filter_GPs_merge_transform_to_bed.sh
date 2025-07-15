@@ -14,8 +14,8 @@ while read i; do
 	    python2 /scripts/filter_vcf_GP_v2.py "$i".vcf.gz -o "$i"_GP${GP}.vcf -t $g 
 		bgzip "$i"_GP${GP}.vcf 
 		tabix "$i"_GP${GP}.vcf.gz
-	; done 
-; done 
+	; done < GPs.txt
+; done < vcfs.txt
 
 # Step 2: Concatenate filtered VCFs
 ls chr9_*vcf.gz | cut -f 2-100 -d "_" > concat_vcfs.txt
