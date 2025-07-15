@@ -10,7 +10,7 @@ ls /*vcf.gz | sed 's/.vcf.gz//g' > vcfs.txt
 
 while read i; do
     while read g; do
-	    GP = $(cut -f 2 -d '.' $g)
+	    GP = $(echo $g | cut -f 2 -d '.')
 	    python2 /scripts/filter_vcf_GP_v2.py "$i".vcf.gz -o "$i"_GP${GP}.vcf -t $g 
 		bgzip "$i"_GP${GP}.vcf 
 		tabix "$i"_GP${GP}.vcf.gz
