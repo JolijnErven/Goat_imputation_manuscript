@@ -1,7 +1,7 @@
 🐐 Ancient Goat Genomes – Imputation and Downstream Analyses
 This repository contains all scripts and workflows used in the analysis of imputed ancient goat genomes as presented in the associated research paper.
 
-📘 [Add publication title here with link/DOI]
+📘 Erven, Jolijn A. M., Alice Etourneau, Marjan Mashkour, Mahesh Neupane, Phillipe Bardou, Alessandra Stella, Andrea Talenti, Clet Wandui Masiga, Curt Van Tassell, Emily Clark, François Pompanon, Licia Colli, Marcel Amillis, Marco Milanesi, Paola Crepaldi, The VarGoats Consortium, Bertrand Servin, Ben Rosen, Gwenola Tosser-Klopp, and Kevin G. Daly. 2025. “Inferring Domestic Goat Demographic History through Ancient Genome Imputation.” bioRxiv. doi:10.1101/2025.04.18.649576.
 
 📂 Repository Structure & Workflow
 Each subdirectory contains specific processing or analysis steps, from raw VCF handling to ROH, IBD, and FPR/concordance analyses.
@@ -24,5 +24,5 @@ All scripts are intended to be run on a Linux-based HPC environment using standa
 
 📄 Citation
 If you use this repository or self-made scripts in your own research, please cite the corresponding publication:
-📘 [Add publication title here with link/DOI]
+📘 Erven, Jolijn A. M., Alice Etourneau, Marjan Mashkour, Mahesh Neupane, Phillipe Bardou, Alessandra Stella, Andrea Talenti, Clet Wandui Masiga, Curt Van Tassell, Emily Clark, François Pompanon, Licia Colli, Marcel Amillis, Marco Milanesi, Paola Crepaldi, The VarGoats Consortium, Bertrand Servin, Ben Rosen, Gwenola Tosser-Klopp, and Kevin G. Daly. 2025. “Inferring Domestic Goat Demographic History through Ancient Genome Imputation.” bioRxiv. doi:10.1101/2025.04.18.649576.
 
