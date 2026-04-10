@@ -37,7 +37,7 @@ plink --file ${dataset}_ancient_merged \
 # Convert PED format to EIGENSTRAT format
 echo -e "genotypename: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.ped\n" \
         "snpname: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.map\n" \
-        "indivname: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.ind\n" \
+        "indivname: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.ped\n" \
         "outputformat: EIGENSTRAT\n" \
         "genooutfilename: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.eigenstratgeno\n" \
         "snpoutfilename: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.snp\n" \
