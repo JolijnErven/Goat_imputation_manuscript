@@ -57,7 +57,7 @@ awk '{print $1"\t"$2"\t"}' ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.in
     | paste - file.pop > ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015_alt.ind
 
 # Remove populations/individuals that you want to project, which have to be removed from population file
-grep -E -v "acem2|blagotin3|direkli1-2|semnan3" populations.txt | sort -u > populations_filtered.txt
+grep -E -v "acem2|blagotin3|direkli1-2|semnan3" file.pop | sort -u > populations_filtered.txt
 
 # Create SmartPCA parameter file and run SmartPCA
 echo -e "genotypename: ${dataset}_ancient_merged_GP99_MAF_0.05_geno_0.015.eigenstratgeno\n" \
