@@ -79,9 +79,9 @@ for d in {1..3}; do
             "$vcf_file" "$map_file" 0.6 1 \
             > "${2}_${d}/chr${c}_${1}_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse.refinedIBD.ibd.gap_0.6_merge"
 
-        # Merge with 4cM gap, 40 discordant homozygotes
+        # Merge with 4cM gap, 4 discordant homozygotes
         zcat "$input_ibd" | java -jar /raid_md0/jolijn/Software/merge-ibd-segments.17Jan20.102.jar \
-            "$vcf_file" "$map_file" 4 40 \
+            "$vcf_file" "$map_file" 4 4 \
             > "${2}_${d}/chr${c}_${1}_beagle_batch_impute_phase_GP99_MAF_0.05_no_missing_TV_glimpse.refinedIBD.ibd.gap_4_merge"
     done
 done
