@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Pipeline: Refined IBD Analysis from Imputed Ancient Goat Genomes
+# Scripts adjusted from Cassidy group
 # Steps:
 #   1. Merge imputed VCFs
 #   2. Run Refined IBD 3 times (to address phasing uncertainty)
